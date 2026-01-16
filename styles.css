@@ -489,6 +489,178 @@ body {
     background: var(--cream-light);
 }
 
+/* Special Offers Row */
+.special-offers-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.special-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.special-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.special-card.free-consultation::before {
+    background: linear-gradient(90deg, var(--sage), var(--sage-dark));
+}
+
+.special-card.gift-certificate::before {
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+
+.special-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.special-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--cream-light);
+}
+
+.special-card.free-consultation .special-icon {
+    background: var(--sage-light);
+}
+
+.special-card.gift-certificate .special-icon {
+    background: rgba(184, 161, 121, 0.15);
+}
+
+.special-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--forest);
+}
+
+.special-card.gift-certificate .special-icon svg {
+    stroke: var(--gold);
+}
+
+.special-content {
+    flex: 1;
+}
+
+.special-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.special-badge.free {
+    background: var(--sage-light);
+    color: var(--forest);
+}
+
+.special-badge.gift {
+    background: rgba(184, 161, 121, 0.2);
+    color: var(--gold);
+}
+
+.special-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 12px;
+}
+
+.special-description {
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    opacity: 0.8;
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.special-features {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.special-features li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    opacity: 0.85;
+}
+
+.special-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.special-card.free-consultation .special-features li::before {
+    background: var(--sage);
+}
+
+.special-card.gift-certificate .special-features li::before {
+    background: var(--gold);
+}
+
+.special-btn {
+    display: block;
+    text-align: center;
+    padding: 14px 24px;
+    background: var(--forest);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.special-btn:hover {
+    background: var(--forest-light);
+    transform: translateY(-2px);
+}
+
+.special-btn.gift-btn {
+    background: var(--gold);
+}
+
+.special-btn.gift-btn:hover {
+    background: var(--gold-light);
+    color: var(--forest);
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1308,6 +1480,10 @@ body {
         font-size: 2.8rem;
     }
 
+    .special-offers-row {
+        grid-template-columns: 1fr;
+    }
+
     .expertise-grid,
     .services-grid,
     .testimonials-grid {
@@ -1389,6 +1565,19 @@ body {
 
     .hero-title {
         font-size: 2.2rem;
+    }
+
+    .special-offers-row {
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .special-card {
+        padding: 24px;
+    }
+
+    .special-features {
+        grid-template-columns: 1fr;
     }
 
     .expertise-grid,

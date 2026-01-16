@@ -266,6 +266,61 @@
                     <span class="section-number">03</span>
                     <h2 class="section-title">Программы консультаций</h2>
                 </div>
+
+                <!-- Special Offers Row -->
+                <div class="special-offers-row">
+                    <div class="special-card free-consultation">
+                        <div class="special-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="special-content">
+                            <div class="special-badge free">Бесплатно</div>
+                            <h3 class="special-title">Диагностическая встреча</h3>
+                            <p class="special-description">
+                                Познакомимся онлайн, обсудим ваши цели и определим, подходит ли вам мой подход к работе
+                            </p>
+                            <ul class="special-features">
+                                <li>15-20 минут онлайн</li>
+                                <li>Обсуждение ваших целей</li>
+                                <li>Ответы на вопросы</li>
+                                <li>Без обязательств</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="special-btn">Записаться бесплатно</a>
+                    </div>
+
+                    <div class="special-card gift-certificate">
+                        <div class="special-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polyline points="20 12 20 22 4 22 4 12"/>
+                                <rect x="2" y="7" width="20" height="5"/>
+                                <line x1="12" y1="22" x2="12" y2="7"/>
+                                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+                                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                            </svg>
+                        </div>
+                        <div class="special-content">
+                            <div class="special-badge gift">Подарок</div>
+                            <h3 class="special-title">Подарочный сертификат</h3>
+                            <p class="special-description">
+                                Подарите близким заботу о здоровье — сертификат на любую программу консультаций
+                            </p>
+                            <ul class="special-features">
+                                <li>На любую сумму</li>
+                                <li>Красивое оформление</li>
+                                <li>Действует 6 месяцев</li>
+                                <li>Доставка онлайн</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="special-btn gift-btn">Заказать сертификат</a>
+                    </div>
+                </div>
+
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-tier">Базовая</div>
@@ -656,6 +711,8 @@
                             <label for="service">Программа</label>
                             <select id="service" name="service" required>
                                 <option value="" disabled selected>Выберите программу</option>
+                                <option value="free-diagnostic">Бесплатная диагностика</option>
+                                <option value="gift-certificate">Подарочный сертификат</option>
                                 <option value="basic">Базовая - 200 BYN</option>
                                 <option value="standard">Стандартная - 450 BYN</option>
                                 <option value="premium">Премиум - 900 BYN</option>
