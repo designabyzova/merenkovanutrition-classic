@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhanna Merenkova | Нутрициолог</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Vertical Sidebar Navigation - Left Side with Fun Icons -->
+    <nav class="sidebar" id="sidebar">
+        <div class="logo">
+            <img src="assets/images/Logo-ZhannaMerenkova.png" alt="ZM">
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#hero" class="nav-link active" data-section="hero" data-tooltip="Старт">
+                    <div class="nav-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#about" class="nav-link" data-section="about" data-tooltip="Кто я">
+                    <div class="nav-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M14.31 8a4 4 0 0 0-5.54 5.54"/>
+                            <line x1="2" y1="2" x2="22" y2="22"/>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#problems" class="nav-link" data-section="problems" data-tooltip="Проблемы">
+                    <div class="nav-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#magic" class="nav-link" data-section="magic" data-tooltip="Магия">
+                    <div class="nav-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#packages" class="nav-link" data-section="packages" data-tooltip="Пакеты">
+                    <div class="nav-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#journey" class="nav-link" data-section="journey" data-tooltip="Путь">
+                    <div class="nav-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#wins" class="nav-link" data-section="wins" data-tooltip="Победы">
+                    <div class="nav-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/>
+                            <path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24z"/>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#connect" class="nav-link" data-section="connect" data-tooltip="Связаться">
+                    <div class="nav-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-social">
+            <a href="https://instagram.com/zhenni_new" target="_blank" class="social-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#hero" class="mobile-nav-link active" data-section="hero">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+        </a>
+        <a href="#about" class="mobile-nav-link" data-section="about">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="10" r="3"/>
+                <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/>
+            </svg>
+        </a>
+        <a href="#packages" class="mobile-nav-link" data-section="packages">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            </svg>
+        </a>
+        <a href="#wins" class="mobile-nav-link" data-section="wins">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+        </a>
+        <a href="#connect" class="mobile-nav-link" data-section="connect">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="section hero-section active">
+            <div class="hero-wrapper">
+                <div class="hero-text">
+                    <div class="hero-tag">
+                        <span class="tag-dot"></span>
+                        Нутрициолог
+                    </div>
+                    <h1 class="hero-headline">
+                        <span class="line-1">Привет!</span>
+                        <span class="line-2">Я Жанна</span>
+                        <span class="line-3">Меренкова</span>
+                    </h1>
+                    <p class="hero-subtext">
+                        Помогаю людям чувствовать себя <span class="highlight">потрясающе</span> через науку питания
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#connect" class="btn-primary">
+                            <span>Начать путь</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                        <a href="#about" class="btn-ghost">Узнать больше</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-value">16+</span>
+                            <span class="stat-label">лет опыта</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">индивидуально</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="image-container">
+                        <img src="assets/images/ZhannaMerenkova-Hero2.JPG" alt="Zhanna Merenkova" class="hero-img">
+                        <div class="image-blob"></div>
+                    </div>
+                    <div class="floating-element el-1">
+                        <span>🥗</span>
+                    </div>
+                    <div class="floating-element el-2">
+                        <span>💪</span>
+                    </div>
+                    <div class="floating-element el-3">
+                        <span>✨</span>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-hint">
+                <span>Листай</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="section-inner">
+                <div class="section-badge">Знакомство</div>
+                <div class="about-grid">
+                    <div class="about-photo">
+                        <img src="assets/images/ZhannaMerenkova-Hero7.JPG" alt="Zhanna Merenkova">
+                        <div class="photo-frame"></div>
+                    </div>
+                    <div class="about-content">
+                        <h2 class="section-title">
+                            Клинический нутрициолог с <span class="accent">медицинским</span> образованием
+                        </h2>
+                        <p class="about-text">
+                            Диплом медицинского университета, 16 лет опыта как провизор, инструктор тренажёрного зала и специалист по тейпированию.
+                        </p>
+                        <p class="about-text">
+                            С лекарствами и БАДами на "ты" — я точно знаю, что работает, а что нет!
+                        </p>
+                        <div class="about-cards">
+                            <div class="mini-card">
+                                <span class="card-emoji">🎓</span>
+                                <span class="card-text">Медицинское образование</span>
+                            </div>
+                            <div class="mini-card">
+                                <span class="card-emoji">🔬</span>
+                                <span class="card-text">Работаю с анализами</span>
+                            </div>
+                            <div class="mini-card">
+                                <span class="card-emoji">💊</span>
+                                <span class="card-text">Знаю нутрицевтики</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problems Section -->
+        <section id="problems" class="section problems-section">
+            <div class="section-inner">
+                <div class="section-badge">Знакомые проблемы?</div>
+                <h2 class="section-title centered">
+                    Я помогу, если у вас есть
+                </h2>
+                <div class="problems-grid">
+                    <div class="problem-card" data-color="coral">
+                        <div class="problem-icon">😴</div>
+                        <h3>Усталость</h3>
+                        <p>Просыпаетесь уже уставшими и нет сил на обычные дела</p>
+                    </div>
+                    <div class="problem-card" data-color="mint">
+                        <div class="problem-icon">⚖️</div>
+                        <h3>Лишний вес</h3>
+                        <p>Постоянно хочется перекусить, тянет на сладкое</p>
+                    </div>
+                    <div class="problem-card" data-color="lavender">
+                        <div class="problem-icon">🤢</div>
+                        <h3>Проблемы с ЖКТ</h3>
+                        <p>Вздутие, дискомфорт, нерегулярный стул</p>
+                    </div>
+                    <div class="problem-card" data-color="peach">
+                        <div class="problem-icon">🌡️</div>
+                        <h3>Гормоны</h3>
+                        <p>Гормональный дисбаланс, перепады настроения</p>
+                    </div>
+                    <div class="problem-card" data-color="sky">
+                        <div class="problem-icon">💇</div>
+                        <h3>Волосы и кожа</h3>
+                        <p>Выпадение волос, ломкие ногти, проблемы с кожей</p>
+                    </div>
+                    <div class="problem-card" data-color="lemon">
+                        <div class="problem-icon">🏥</div>
+                        <h3>Частые болезни</h3>
+                        <p>Слабый иммунитет, постоянные простуды</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Magic Section (Approach) -->
+        <section id="magic" class="section magic-section">
+            <div class="section-inner">
+                <div class="section-badge">Мой подход</div>
+                <h2 class="section-title centered">
+                    В чём моя <span class="sparkle">магия</span>
+                </h2>
+                <div class="magic-list">
+                    <div class="magic-item">
+                        <div class="magic-number">01</div>
+                        <div class="magic-content">
+                            <h3>Наука, а не догадки</h3>
+                            <p>Работаю с вашими анализами и обследованиями, а не на глазок</p>
+                        </div>
+                    </div>
+                    <div class="magic-item">
+                        <div class="magic-number">02</div>
+                        <div class="magic-content">
+                            <h3>Индивидуально под вас</h3>
+                            <p>Никаких универсальных диет — только персональный план</p>
+                        </div>
+                    </div>
+                    <div class="magic-item">
+                        <div class="magic-number">03</div>
+                        <div class="magic-content">
+                            <h3>Без крайностей</h3>
+                            <p>Здоровье без стресса и строгих ограничений</p>
+                        </div>
+                    </div>
+                    <div class="magic-item">
+                        <div class="magic-number">04</div>
+                        <div class="magic-content">
+                            <h3>Комплексный подход</h3>
+                            <p>Питание + образ жизни + нутрицевтики = результат</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packages Section -->
+        <section id="packages" class="section packages-section">
+            <div class="section-inner">
+                <div class="section-badge">Выбери свой путь</div>
+                <h2 class="section-title centered">
+                    Пакеты консультаций
+                </h2>
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-emoji">🌱</div>
+                        <div class="package-name">Старт</div>
+                        <div class="package-title">Консультация одного дня</div>
+                        <div class="package-price">
+                            <span class="price-num">200</span>
+                            <span class="price-curr">BYN</span>
+                        </div>
+                        <ul class="package-features">
+                            <li>Опросники и анкетирование</li>
+                            <li>Аудио-разбор анализов</li>
+                            <li>Рекомендации по питанию</li>
+                            <li>Список продуктов</li>
+                        </ul>
+                        <a href="#connect" class="package-btn">Выбрать</a>
+                    </div>
+                    <div class="package-card popular">
+                        <div class="popular-badge">ХИТ!</div>
+                        <div class="package-emoji">🚀</div>
+                        <div class="package-name">Прорыв</div>
+                        <div class="package-title">Консультация 7 дней</div>
+                        <div class="package-price">
+                            <span class="price-num">450</span>
+                            <span class="price-curr">BYN</span>
+                        </div>
+                        <ul class="package-features">
+                            <li>Всё из пакета "Старт"</li>
+                            <li>7 дней готового рациона</li>
+                            <li>Схема нутрицевтиков</li>
+                            <li>Повторная консультация</li>
+                        </ul>
+                        <a href="#connect" class="package-btn">Выбрать</a>
+                    </div>
+                    <div class="package-card">
+                        <div class="package-emoji">⭐</div>
+                        <div class="package-name">Трансформация</div>
+                        <div class="package-title">Сопровождение</div>
+                        <div class="package-price">
+                            <span class="price-num">900</span>
+                            <span class="price-curr">BYN</span>
+                        </div>
+                        <ul class="package-features">
+                            <li>5 дней детокс-диеты</li>
+                            <li>7 дней рациона</li>
+                            <li>30 дней поддержки</li>
+                            <li>Продление: 400 BYN/мес</li>
+                        </ul>
+                        <a href="#connect" class="package-btn">Выбрать</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section id="journey" class="section journey-section">
+            <div class="section-inner">
+                <div class="section-badge">Как это работает</div>
+                <h2 class="section-title centered">
+                    Твой путь к здоровью
+                </h2>
+                <div class="journey-timeline">
+                    <div class="journey-step">
+                        <div class="step-marker">1</div>
+                        <div class="step-card">
+                            <h3>📝 Заполняем анкету</h3>
+                            <p>Вы заполняете опросники и присылаете анализы</p>
+                        </div>
+                    </div>
+                    <div class="journey-step">
+                        <div class="step-marker">2</div>
+                        <div class="step-card">
+                            <h3>🔍 Анализирую данные</h3>
+                            <p>Изучаю всё и готовлю персональные рекомендации</p>
+                        </div>
+                    </div>
+                    <div class="journey-step">
+                        <div class="step-marker">3</div>
+                        <div class="step-card">
+                            <h3>🎧 Аудио-консультация</h3>
+                            <p>Подробный разбор с ответами на все вопросы</p>
+                        </div>
+                    </div>
+                    <div class="journey-step">
+                        <div class="step-marker">4</div>
+                        <div class="step-card">
+                            <h3>📋 Получаете план</h3>
+                            <p>Рацион, нутрицевтики, рекомендации — всё в одном</p>
+                        </div>
+                    </div>
+                    <div class="journey-step">
+                        <div class="step-marker">5</div>
+                        <div class="step-card">
+                            <h3>💬 Поддержка</h3>
+                            <p>Остаюсь на связи и помогаю на всём пути</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wins Section -->
+        <section id="wins" class="section wins-section">
+            <div class="section-inner">
+                <div class="section-badge">Истории успеха</div>
+                <h2 class="section-title centered">
+                    Победы моих клиентов 🏆
+                </h2>
+                <div class="wins-carousel">
+                    <div class="win-card">
+                        <div class="win-before">
+                            <span class="label">Было:</span>
+                            <p>Постоянная усталость, проблемы с кожей</p>
+                        </div>
+                        <div class="win-arrow">→</div>
+                        <div class="win-after">
+                            <span class="label">Стало:</span>
+                            <p>Энергия вернулась, кожа очистилась за 2 месяца!</p>
+                        </div>
+                    </div>
+                    <div class="win-card">
+                        <div class="win-before">
+                            <span class="label">Было:</span>
+                            <p>Лишний вес, постоянная тяга к сладкому</p>
+                        </div>
+                        <div class="win-arrow">→</div>
+                        <div class="win-after">
+                            <span class="label">Стало:</span>
+                            <p>Минус 8 кг, сладкое больше не тянет!</p>
+                        </div>
+                    </div>
+                    <div class="win-card">
+                        <div class="win-before">
+                            <span class="label">Было:</span>
+                            <p>Выпадение волос, ломкие ногти</p>
+                        </div>
+                        <div class="win-arrow">→</div>
+                        <div class="win-after">
+                            <span class="label">Стало:</span>
+                            <p>Волосы укрепились, ногти растут здоровыми!</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="disclaimer">* Результаты индивидуальны</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section faq-section">
+            <div class="section-inner">
+                <div class="section-badge">Вопросы</div>
+                <h2 class="section-title centered">
+                    Часто спрашивают
+                </h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-q">
+                            <span>Вы врач?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>У меня диплом медицинского университета и специализация нутрициолога. Я работаю с питанием, но не ставлю диагнозы.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">
+                            <span>Работаете с анализами?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>Да! Анализ обследований — важная часть моей работы. На их основе составляю персональные рекомендации.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">
+                            <span>Можно онлайн?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>Конечно! Все консультации проходят онлайн в удобном для вас мессенджере.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">
+                            <span>Назначаете БАДы?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>При необходимости составляю схему нутрицевтиков с названиями, дозировками и ссылками для покупки.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect Section -->
+        <section id="connect" class="section connect-section">
+            <div class="section-inner">
+                <div class="connect-wrapper">
+                    <div class="connect-left">
+                        <div class="section-badge">Готовы?</div>
+                        <h2 class="section-title">
+                            Давайте начнём ваш путь к здоровью!
+                        </h2>
+                        <p class="connect-text">
+                            Выбирайте удобный способ связи — я отвечу в течение дня
+                        </p>
+                        <div class="connect-buttons">
+                            <a href="tel:+375295185154" class="connect-btn phone">
+                                <span class="btn-icon">📞</span>
+                                <span class="btn-text">+375 29 518 51 54</span>
+                            </a>
+                            <a href="https://instagram.com/zhenni_new" target="_blank" class="connect-btn insta">
+                                <span class="btn-icon">📸</span>
+                                <span class="btn-text">@zhenni_new</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="connect-right">
+                        <form class="connect-form" id="contactForm">
+                            <div class="form-field">
+                                <input type="text" name="name" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-field">
+                                <input type="tel" name="phone" placeholder="Телефон / мессенджер" required>
+                            </div>
+                            <div class="form-field">
+                                <select name="service" required>
+                                    <option value="" disabled selected>Выберите пакет</option>
+                                    <option value="start">🌱 Старт — 200 BYN</option>
+                                    <option value="breakthrough">🚀 Прорыв — 450 BYN</option>
+                                    <option value="transform">⭐ Трансформация — 900 BYN</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <textarea name="message" placeholder="Расскажите о себе (опционально)"></textarea>
+                            </div>
+                            <button type="submit" class="form-submit">
+                                Отправить заявку 🚀
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <img src="assets/images/Logo-ZhannaMerenkova.png" alt="ZM" class="footer-logo">
+                    <span>Zhanna Merenkova</span>
+                </div>
+                <div class="footer-links">
+                    <a href="https://instagram.com/zhenni_new" target="_blank">Instagram</a>
+                    <a href="tel:+375295185154">+375 29 518 51 54</a>
+                </div>
+                <p class="footer-disclaimer">
+                    Информация на сайте не является медицинской консультацией
+                </p>
+                <p class="footer-copy">© 2024 Zhanna Merenkova</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

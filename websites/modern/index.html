@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhanna Merenkova | Нутрициолог</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Vertical Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="logo">
+            <img src="assets/images/Logo-ZhannaMerenkova.png" alt="ZM Logo">
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#hero" class="nav-link active" data-section="hero">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    <span class="tooltip">Главная</span>
+                </a>
+            </li>
+            <li>
+                <a href="#about" class="nav-link" data-section="about">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span class="tooltip">Обо мне</span>
+                </a>
+            </li>
+            <li>
+                <a href="#target" class="nav-link" data-section="target">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <circle cx="12" cy="12" r="6"/>
+                        <circle cx="12" cy="12" r="2"/>
+                    </svg>
+                    <span class="tooltip">Кому подойдёт</span>
+                </a>
+            </li>
+            <li>
+                <a href="#approach" class="nav-link" data-section="approach">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                    <span class="tooltip">Мой подход</span>
+                </a>
+            </li>
+            <li>
+                <a href="#services" class="nav-link" data-section="services">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                    <span class="tooltip">Услуги</span>
+                </a>
+            </li>
+            <li>
+                <a href="#process" class="nav-link" data-section="process">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6"/>
+                        <line x1="8" y1="12" x2="21" y2="12"/>
+                        <line x1="8" y1="18" x2="21" y2="18"/>
+                        <line x1="3" y1="6" x2="3.01" y2="6"/>
+                        <line x1="3" y1="12" x2="3.01" y2="12"/>
+                        <line x1="3" y1="18" x2="3.01" y2="18"/>
+                    </svg>
+                    <span class="tooltip">Как проходит</span>
+                </a>
+            </li>
+            <li>
+                <a href="#results" class="nav-link" data-section="results">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+                    </svg>
+                    <span class="tooltip">Результаты</span>
+                </a>
+            </li>
+            <li>
+                <a href="#faq" class="nav-link" data-section="faq">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span class="tooltip">FAQ</span>
+                </a>
+            </li>
+            <li>
+                <a href="#contact" class="nav-link" data-section="contact">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                    </svg>
+                    <span class="tooltip">Контакты</span>
+                </a>
+            </li>
+        </ul>
+        <div class="social-links">
+            <a href="https://instagram.com/zhenni_new" target="_blank" class="social-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#hero" class="mobile-nav-link active" data-section="hero">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+        </a>
+        <a href="#about" class="mobile-nav-link" data-section="about">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+        </a>
+        <a href="#services" class="mobile-nav-link" data-section="services">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+        </a>
+        <a href="#results" class="mobile-nav-link" data-section="results">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+            </svg>
+        </a>
+        <a href="#contact" class="mobile-nav-link" data-section="contact">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="section hero-section active">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Научный подход</span>
+                        <span class="title-line gradient-text">к питанию и здоровью</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Медицинский специалист и нутрициолог.<br>
+                        Анализирую обследования и помогаю улучшить здоровье через питание и образ жизни.
+                    </p>
+                    <a href="#contact" class="cta-button">
+                        <span>Записаться на консультацию</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <div class="image-frame">
+                        <img src="assets/images/ZhannaMerenkova-Hero5.JPG" alt="Zhanna Merenkova">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="floating-badge badge-1">
+                        <span>16+ лет</span>
+                        <small>опыта</small>
+                    </div>
+                    <div class="floating-badge badge-2">
+                        <span>3-5</span>
+                        <small>клиентов/мес</small>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Листайте вниз</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="section-content">
+                <div class="about-image">
+                    <img src="assets/images/ZhannaMerenkova-Hero6.JPG" alt="Zhanna Merenkova">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">О специалисте</h2>
+                    <p class="about-intro">
+                        Я, <strong>Жанна Меренкова</strong>, клинический нутрициолог с дипломом медицинского университета, инструктор тренажёрного зала, специалист по тейпированию.
+                    </p>
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <div class="credential-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <span>Медицинское образование</span>
+                        </div>
+                        <div class="credential-item">
+                            <div class="credential-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <span>16 лет опыта работы</span>
+                        </div>
+                        <div class="credential-item">
+                            <div class="credential-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <span>Индивидуальный подход</span>
+                        </div>
+                    </div>
+                    <p class="about-philosophy">
+                        Вы даже не представляете, каких перемен можно достичь, изменив питание! Каждый месяц 3-5 человек под моим руководством меняют свою жизнь к лучшему.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Audience Section -->
+        <section id="target" class="section target-section">
+            <div class="section-content">
+                <h2 class="section-title centered">Кому я могу быть полезна</h2>
+                <div class="target-grid">
+                    <div class="target-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                                <line x1="6" y1="1" x2="6" y2="4"/>
+                                <line x1="10" y1="1" x2="10" y2="4"/>
+                                <line x1="14" y1="1" x2="14" y2="4"/>
+                            </svg>
+                        </div>
+                        <h3>Усталость и упадок сил</h3>
+                        <p>Нет сил и энергии по утрам, регулярно ходите на больничный</p>
+                    </div>
+                    <div class="target-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                <line x1="15" y1="9" x2="15.01" y2="9"/>
+                            </svg>
+                        </div>
+                        <h3>Проблемы с весом</h3>
+                        <p>Есть проблемы с лишним весом, постоянно хочется перекусить</p>
+                    </div>
+                    <div class="target-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3>ЖКТ и пищеварение</h3>
+                        <p>Есть проблемы с пищеварением, страдаете от нерегулярного стула</p>
+                    </div>
+                    <div class="target-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </div>
+                        <h3>Гормональный дисбаланс</h3>
+                        <p>Чувствуете тягу к сладкому, гормональные нарушения</p>
+                    </div>
+                    <div class="target-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                            </svg>
+                        </div>
+                        <h3>Дефициты витаминов</h3>
+                        <p>Чрезмерное выпадение волос, ломкость ногтей, несовершенства кожи</p>
+                    </div>
+                    <div class="target-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Профилактика</h3>
+                        <p>Хотите улучшить самочувствие своё и своих близких</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approach Section -->
+        <section id="approach" class="section approach-section">
+            <div class="section-content">
+                <h2 class="section-title centered">Чем я отличаюсь</h2>
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <div class="approach-number">01</div>
+                        <h3>Медицинское образование</h3>
+                        <p>Диплом медицинского университета и глубокие знания физиологии</p>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-number">02</div>
+                        <h3>Работа с анализами</h3>
+                        <p>Анализирую обследования и составляю рекомендации на их основе</p>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-number">03</div>
+                        <h3>Индивидуальные рекомендации</h3>
+                        <p>Каждый план питания составляется под ваш запрос</p>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-number">04</div>
+                        <h3>Научно обоснованный подход</h3>
+                        <p>Только доказательная медицина, никаких универсальных диет</p>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-number">05</div>
+                        <h3>Без крайностей</h3>
+                        <p>Здоровье без строгих ограничений и стресса</p>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-number">06</div>
+                        <h3>Питание + образ жизни</h3>
+                        <p>Комплексный подход к улучшению качества жизни</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section services-section">
+            <div class="section-content">
+                <h2 class="section-title centered">Как я могу помочь</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span class="service-tag">Базовый</span>
+                            <h3>Консультация одного дня</h3>
+                            <div class="service-price">200 руб.</div>
+                        </div>
+                        <div class="service-body">
+                            <p>Подойдёт для тех, кто хочет пройти плановый чек-ап своего здоровья и получить базовые рекомендации</p>
+                            <ul class="service-features">
+                                <li>Заполнение опросников</li>
+                                <li>Аудио-разбор анализов</li>
+                                <li>Рекомендации по питанию</li>
+                                <li>Список продуктов</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="service-cta">Записаться</a>
+                    </div>
+                    <div class="service-card featured">
+                        <div class="service-header">
+                            <span class="service-tag">Популярный</span>
+                            <h3>Консультация 7 дней</h3>
+                            <div class="service-price">450 руб.</div>
+                        </div>
+                        <div class="service-body">
+                            <p>Подробные рекомендации для тех, кто не хочет думать, что готовить и где искать нутрицевтики</p>
+                            <ul class="service-features">
+                                <li>Заполнение опросников</li>
+                                <li>Аудио-разбор анализов</li>
+                                <li>7 дней рациона</li>
+                                <li>Схема нутрицевтиков</li>
+                                <li>Повторная консультация через месяц</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="service-cta">Записаться</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span class="service-tag">Премиум</span>
+                            <h3>Сопровождение</h3>
+                            <div class="service-price">900 руб.</div>
+                        </div>
+                        <div class="service-body">
+                            <p>Для тех, кто уже имел неудачный опыт и нуждается в постоянной поддержке</p>
+                            <ul class="service-features">
+                                <li>5 дней детокс-диеты</li>
+                                <li>7 дней индивидуального рациона</li>
+                                <li>Схема нутрицевтиков</li>
+                                <li>30 дней поддержки</li>
+                                <li>Продление: 400 руб./мес</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="service-cta">Записаться</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="section process-section">
+            <div class="section-content">
+                <h2 class="section-title centered">Как проходит консультация</h2>
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Анкета и цели</h3>
+                            <p>Вы заполняете опросники и предоставляете анализы</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Анализ анализов</h3>
+                            <p>Я изучаю ваши данные и отвечаю на вопросы</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Консультация</h3>
+                            <p>Аудио-разбор с персональными рекомендациями</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Персональные рекомендации</h3>
+                            <p>Получаете план питания и список нутрицевтиков</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Поддержка и корректировка</h3>
+                            <p>Остаюсь на связи и помогаю адаптировать план</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results" class="section results-section">
+            <div class="section-content">
+                <h2 class="section-title centered">Результаты и отзывы</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-before-after">
+                            <span class="before">Было:</span>
+                            <span class="after">Стало:</span>
+                        </div>
+                        <p class="result-before-text">Постоянная усталость, проблемы с кожей</p>
+                        <p class="result-after-text">Энергия вернулась, кожа очистилась за 2 месяца</p>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-before-after">
+                            <span class="before">Было:</span>
+                            <span class="after">Стало:</span>
+                        </div>
+                        <p class="result-before-text">Лишний вес, тяга к сладкому</p>
+                        <p class="result-after-text">-8 кг, сладкое больше не тянет</p>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-before-after">
+                            <span class="before">Было:</span>
+                            <span class="after">Стало:</span>
+                        </div>
+                        <p class="result-before-text">Выпадение волос, ломкие ногти</p>
+                        <p class="result-after-text">Волосы укрепились, ногти растут здоровыми</p>
+                    </div>
+                </div>
+                <p class="results-disclaimer">* Результаты индивидуальны и зависят от исходного состояния здоровья</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section faq-section">
+            <div class="section-content">
+                <h2 class="section-title centered">Частые вопросы</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Вы врач?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>У меня диплом медицинского университета и специализация нутрициолога. Я работаю с питанием и образом жизни, но не ставлю диагнозы и не назначаю лечение.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Работаете ли с анализами?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Да, анализ обследований - важная часть моей работы. На их основе я составляю персональные рекомендации.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Можно ли онлайн?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Да, все консультации проходят онлайн в удобном для вас мессенджере.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Назначаете ли БАДы?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>При необходимости я составляю схему нутрицевтиков с названиями, дозировками и ссылками для покупки.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Подходит ли для жителей Беларуси?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Да, я работаю с клиентами из Беларуси и учитываю доступность продуктов и препаратов в регионе.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="section-content">
+                <h2 class="section-title centered">Начнём с консультации</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <p class="contact-intro">Готовы преодолеть этот непростой, но увлекательный путь вместе со мной? Выбирайте удобный формат и вперёд навстречу переменам!</p>
+                        <div class="contact-methods">
+                            <a href="tel:+375295185154" class="contact-method">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                                <span>+375 29 518 51 54</span>
+                            </a>
+                            <a href="https://instagram.com/zhenni_new" target="_blank" class="contact-method">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                </svg>
+                                <span>@zhenni_new</span>
+                            </a>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Телефон / мессенджер" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="service" required>
+                                <option value="" disabled selected>Выберите услугу</option>
+                                <option value="basic">Консультация одного дня - 200 руб.</option>
+                                <option value="standard">Консультация 7 дней - 450 руб.</option>
+                                <option value="premium">Сопровождение - 900 руб.</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Цель обращения (опционально)"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <span>Отправить заявку</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/Logo-ZhannaMerenkova.png" alt="Zhanna Merenkova">
+                </div>
+                <div class="footer-links">
+                    <a href="https://instagram.com/zhenni_new" target="_blank">Instagram</a>
+                    <span class="divider">|</span>
+                    <a href="tel:+375295185154">+375 29 518 51 54</a>
+                </div>
+                <p class="footer-disclaimer">
+                    Информация на сайте не является медицинской консультацией. Перед изменением питания проконсультируйтесь с врачом.
+                </p>
+                <p class="footer-copyright">
+                    &copy; 2024 Zhanna Merenkova. Все права защищены.
+                </p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
