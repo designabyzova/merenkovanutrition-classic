@@ -1,0 +1,27 @@
+# Robots.txt for zhannamerenkova.by
+# Клинический нутрициолог Жанна Меренкова
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://zhannamerenkova.by/sitemap.xml
+
+# Disallow admin/private directories (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.pdf$
+
+# Allow all search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay for respectful crawling
+User-agent: *
+Crawl-delay: 1
