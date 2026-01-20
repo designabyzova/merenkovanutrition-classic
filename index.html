@@ -12,6 +12,17 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://zhannamerenkova.by/">
 
+    <!-- Language and Regional SEO -->
+    <link rel="alternate" hreflang="ru" href="https://zhannamerenkova.by/">
+    <link rel="alternate" hreflang="x-default" href="https://zhannamerenkova.by/">
+
+    <!-- Yandex Verification (replace with actual code) -->
+    <meta name="yandex-verification" content="verification-code-here">
+
+    <!-- Additional SEO -->
+    <meta name="geo.region" content="BY">
+    <meta name="geo.placename" content="Belarus">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zhannamerenkova.by/">
@@ -39,6 +50,11 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload critical resources for faster LCP -->
+    <link rel="preload" href="assets/images/ZhannaMerenkova-Hero5best.JPG" as="image" fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" as="style">
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
@@ -191,7 +207,7 @@
     <!-- Vertical Sidebar Navigation - Right Side -->
     <nav class="sidebar" id="sidebar" role="navigation" aria-label="Основная навигация">
         <div class="logo">
-            <img src="assets/images/Logo-ZhannaMerenkova.png" alt="Zhanna Merenkova Logo">
+            <img src="assets/images/Logo-ZhannaMerenkova.png" alt="Zhanna Merenkova Logo" width="160" height="60" loading="lazy">
         </div>
         <ul class="nav-links">
             <li>
@@ -290,20 +306,78 @@
         </div>
     </nav>
 
-    <!-- Mobile Bottom Navigation -->
+    <!-- Mobile Header -->
+    <header class="mobile-header" id="mobileHeader">
+        <div class="mobile-header-content">
+            <a href="#hero" class="mobile-logo">
+                <img src="assets/images/Logo-ZhannaMerenkova.png" alt="Zhanna Merenkova" width="120" height="45">
+            </a>
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Открыть меню" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Full Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Мобильное меню">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">Меню</span>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <ul class="mobile-menu-links">
+            <li><a href="#hero" class="mobile-menu-link active" data-section="hero">Главная</a></li>
+            <li><a href="#about" class="mobile-menu-link" data-section="about">О специалисте</a></li>
+            <li><a href="#expertise" class="mobile-menu-link" data-section="expertise">Экспертиза</a></li>
+            <li><a href="#services" class="mobile-menu-link" data-section="services">Услуги</a></li>
+            <li><a href="#methodology" class="mobile-menu-link" data-section="methodology">Методология</a></li>
+            <li><a href="#testimonials" class="mobile-menu-link" data-section="testimonials">Отзывы</a></li>
+            <li><a href="#faq" class="mobile-menu-link" data-section="faq">FAQ</a></li>
+            <li><a href="#contact" class="mobile-menu-link" data-section="contact">Контакт</a></li>
+        </ul>
+        <div class="mobile-menu-social">
+            <a href="https://instagram.com/zhenni_new" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+            </a>
+            <a href="https://wa.me/375295185154" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+            </a>
+            <a href="https://t.me/+375295185154" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M21.2 4.6L2.4 11.1c-.6.2-.6 1.1.1 1.3l4.7 1.5 1.8 5.8c.1.4.6.6.9.3l2.7-2.2 5.2 3.8c.5.3 1.1 0 1.2-.5l3.1-14.6c.2-.6-.4-1.1-1-.9z"/>
+                </svg>
+            </a>
+        </div>
+        <a href="#contact" class="mobile-menu-cta">Записаться на консультацию</a>
+    </nav>
+
+    <!-- Mobile Bottom Navigation (simplified) -->
     <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Мобильная навигация">
-        <a href="#hero" class="mobile-nav-link active" data-section="hero">
+        <a href="#hero" class="mobile-nav-link active" data-section="hero" aria-label="Главная">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             </svg>
         </a>
-        <a href="#about" class="mobile-nav-link" data-section="about">
+        <a href="#about" class="mobile-nav-link" data-section="about" aria-label="О специалисте">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                 <circle cx="12" cy="7" r="4"/>
             </svg>
         </a>
-        <a href="#services" class="mobile-nav-link" data-section="services">
+        <a href="#services" class="mobile-nav-link" data-section="services" aria-label="Услуги">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <rect x="3" y="3" width="7" height="7"/>
                 <rect x="14" y="3" width="7" height="7"/>
@@ -311,12 +385,12 @@
                 <rect x="3" y="14" width="7" height="7"/>
             </svg>
         </a>
-        <a href="#testimonials" class="mobile-nav-link" data-section="testimonials">
+        <a href="#testimonials" class="mobile-nav-link" data-section="testimonials" aria-label="Отзывы">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
         </a>
-        <a href="#contact" class="mobile-nav-link" data-section="contact">
+        <a href="#contact" class="mobile-nav-link" data-section="contact" aria-label="Контакт">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,13 2,6"/>
@@ -330,7 +404,13 @@
         <section id="hero" class="section hero-section active">
             <div class="hero-container">
                 <div class="hero-image-wrapper">
-                    <img src="assets/images/ZhannaMerenkova-Hero5best.JPG" alt="Жанна Меренкова — клинический нутрициолог, персональные консультации по питанию" class="hero-img">
+                    <img src="assets/images/ZhannaMerenkova-Hero5best.JPG"
+                         alt="Жанна Меренкова — клинический нутрициолог, персональные консультации по питанию"
+                         class="hero-img"
+                         width="600"
+                         height="800"
+                         fetchpriority="high"
+                         decoding="async">
                     <div class="hero-image-border"></div>
                 </div>
                 <div class="hero-content">
@@ -380,7 +460,12 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <img src="assets/images/ZhannaMerenkova-Hero1.JPG" alt="Жанна Меренкова — клинический нутрициолог с 16-летним опытом" loading="lazy">
+                        <img src="assets/images/ZhannaMerenkova-Hero1.JPG"
+                             alt="Жанна Меренкова — клинический нутрициолог с 16-летним опытом"
+                             loading="lazy"
+                             width="400"
+                             height="500"
+                             decoding="async">
                     </div>
                 </div>
             </div>
@@ -901,6 +986,6 @@
         </footer>
     </main>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
