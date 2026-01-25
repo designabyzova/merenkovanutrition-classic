@@ -1,27 +1,63 @@
-# Robots.txt for zhannamerenkova.by
+# Robots.txt for merenkovanutrition.com
 # Клинический нутрициолог Жанна Меренкова
+# Last updated: 2025-01-25
 
+# Default rules for all crawlers
 User-agent: *
 Allow: /
+Allow: /assets/
+Allow: /assets/images/
+Allow: /*.pdf$
 
-# Sitemap location
-Sitemap: https://zhannamerenkova.by/sitemap.xml
+# Disallow development and system files
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /node_modules/
+Disallow: /websites/
+Disallow: /*.DS_Store
 
-# Disallow admin/private directories (if any)
-Disallow: /admin/
-Disallow: /private/
-Disallow: /*.pdf$
+# Sitemap location - essential for SEO
+Sitemap: https://merenkovanutrition.com/sitemap.xml
 
-# Allow all search engine crawlers
+# Host directive - canonical domain (important for Yandex)
+Host: https://merenkovanutrition.com
+
+# Google-specific settings
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
+# Yandex-specific settings (important for Russian-speaking audience)
 User-agent: Yandex
 Allow: /
+Crawl-delay: 1
 
+User-agent: YandexImages
+Allow: /assets/images/
+
+# Bing
 User-agent: Bingbot
 Allow: /
-
-# Crawl delay for respectful crawling
-User-agent: *
 Crawl-delay: 1
+
+# Allow social media crawlers for rich previews
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# Clean URLs directive
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term /
