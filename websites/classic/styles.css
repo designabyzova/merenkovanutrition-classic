@@ -781,79 +781,48 @@ body {
     margin-bottom: 20px;
 }
 
-/* New dual-currency price block styles */
-.service-price-block {
-    margin: 24px 0;
-    padding: 20px;
-    background: linear-gradient(135deg, var(--cream-light) 0%, rgba(197, 205, 181, 0.15) 100%);
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid var(--cream);
-}
-
-.price-label {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--charcoal);
-    opacity: 0.7;
-    margin-bottom: 8px;
-    text-transform: lowercase;
-    letter-spacing: 0.5px;
-}
-
-.price-row {
+/* Clean inline dual-currency price styles */
+.service-price-inline {
     display: flex;
     align-items: baseline;
-    justify-content: center;
-    gap: 8px;
+    gap: 16px;
+    margin: 24px 0;
     flex-wrap: wrap;
 }
 
-.price-main {
+.service-price-inline .price-main {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 600;
     color: var(--forest);
     letter-spacing: -0.5px;
+    line-height: 1;
 }
 
-.price-main .currency {
-    font-size: 0.9rem;
-    font-weight: 500;
-    opacity: 0.8;
-    margin-left: 2px;
-}
-
-.price-divider {
-    font-size: 1.1rem;
-    color: var(--gold);
-    font-weight: 400;
-    margin: 0 4px;
-}
-
-.price-alt {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
+.service-price-inline .price-main .currency {
+    font-family: var(--font-body);
+    font-size: 1rem;
     font-weight: 500;
     color: var(--charcoal);
-    opacity: 0.75;
+    opacity: 0.7;
+    margin-left: 4px;
 }
 
-.price-alt .currency {
-    font-size: 0.75rem;
+.service-price-inline .price-alt {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    opacity: 0.55;
+    line-height: 1;
+}
+
+.service-price-inline .price-alt .currency {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
     font-weight: 400;
-    opacity: 0.8;
-    margin-left: 2px;
-}
-
-/* Featured card price styling */
-.service-card.featured .service-price-block {
-    background: linear-gradient(135deg, rgba(44, 62, 45, 0.08) 0%, rgba(184, 161, 121, 0.15) 100%);
-    border-color: var(--gold-light);
-}
-
-.service-card.featured .price-main {
-    color: var(--forest);
+    opacity: 0.9;
+    margin-left: 3px;
 }
 
 /* Old price styles - kept for compatibility */
@@ -2175,34 +2144,26 @@ textarea:focus-visible {
         padding: 32px 24px;
     }
 
-    /* Price block mobile */
-    .service-price-block {
-        padding: 16px;
+    /* Price inline mobile */
+    .service-price-inline {
+        gap: 12px;
         margin: 20px 0;
     }
 
-    .price-row {
-        gap: 6px;
+    .service-price-inline .price-main {
+        font-size: 2rem;
     }
 
-    .price-main {
-        font-size: 1.6rem;
+    .service-price-inline .price-main .currency {
+        font-size: 0.85rem;
     }
 
-    .price-main .currency {
-        font-size: 0.8rem;
+    .service-price-inline .price-alt {
+        font-size: 1.25rem;
     }
 
-    .price-alt {
-        font-size: 1.15rem;
-    }
-
-    .price-alt .currency {
-        font-size: 0.7rem;
-    }
-
-    .price-divider {
-        font-size: 1rem;
+    .service-price-inline .price-alt .currency {
+        font-size: 0.75rem;
     }
 
     /* Form improvements */
