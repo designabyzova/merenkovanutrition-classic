@@ -1673,7 +1673,7 @@ body {
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--cream-dark);
     z-index: 1001;
-    padding: 14px 20px;
+    padding: 12px 20px;
 }
 
 .mobile-header-content {
@@ -1684,7 +1684,7 @@ body {
 }
 
 .mobile-logo img {
-    height: 52px;
+    height: 70px;
     width: auto;
 }
 
@@ -2081,7 +2081,7 @@ textarea:focus-visible {
     }
 
     .main-content {
-        padding-top: 80px;
+        padding-top: 100px;
     }
 
     /* Ensure adequate touch targets */
