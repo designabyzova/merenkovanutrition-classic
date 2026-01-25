@@ -1684,7 +1684,7 @@ body {
 }
 
 .mobile-logo img {
-    height: 70px;
+    height: 90px;
     width: auto;
 }
 
@@ -2081,7 +2081,7 @@ textarea:focus-visible {
     }
 
     .main-content {
-        padding-top: 100px;
+        padding-top: 120px;
     }
 
     /* Ensure adequate touch targets */
