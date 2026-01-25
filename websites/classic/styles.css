@@ -785,9 +785,11 @@ body {
 .service-price-inline {
     display: flex;
     align-items: baseline;
-    gap: 16px;
-    margin: 24px 0;
-    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .service-price-inline .price-main {
@@ -797,6 +799,7 @@ body {
     color: var(--forest);
     letter-spacing: -0.5px;
     line-height: 1;
+    white-space: nowrap;
 }
 
 .service-price-inline .price-main .currency {
@@ -815,6 +818,7 @@ body {
     color: var(--charcoal);
     opacity: 0.55;
     line-height: 1;
+    white-space: nowrap;
 }
 
 .service-price-inline .price-alt .currency {
@@ -855,8 +859,7 @@ body {
 
 .service-includes {
     list-style: none;
-    margin-bottom: 30px;
-    flex: 1;
+    margin-bottom: 0;
 }
 
 .service-includes li {
@@ -2146,24 +2149,26 @@ textarea:focus-visible {
 
     /* Price inline mobile */
     .service-price-inline {
-        gap: 12px;
-        margin: 20px 0;
+        gap: 10px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        flex-wrap: nowrap;
     }
 
     .service-price-inline .price-main {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .service-price-inline .price-main .currency {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .service-price-inline .price-alt {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
     }
 
     .service-price-inline .price-alt .currency {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
     }
 
     /* Form improvements */
