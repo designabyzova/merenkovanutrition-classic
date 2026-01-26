@@ -156,18 +156,120 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Contact Form
+    // Contact Form - sends to generic Cloudflare Email Worker
+    // UPDATE THIS URL after deploying: https://email-service.YOUR_SUBDOMAIN.workers.dev/send
+    const EMAIL_SERVICE_URL = 'https://email-service.aabyzovext.workers.dev/send';
+
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        const originalBtnText = submitBtn ? submitBtn.textContent : 'Отправить заявку';
+
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const formData = new FormData(this);
-            const data = {};
-            formData.forEach((value, key) => data[key] = value);
+            const formValues = {};
+            formData.forEach((value, key) => formValues[key] = value);
 
-            alert('Спасибо за заявку! Я свяжусь с вами в ближайшее время.');
-            this.reset();
+            // Show loading state
+            if (submitBtn) {
+                submitBtn.textContent = 'Отправка...';
+                submitBtn.disabled = true;
+            }
+
+            // Build email content
+            const serviceName = getServiceDisplayName(formValues.service);
+            const timestamp = new Date().toLocaleString('ru-RU');
+
+            const emailHtml = `
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+    <div style="background: #2C3E2D; color: white; padding: 20px; text-align: center;">
+        <h1 style="margin: 0;">Новая заявка на консультацию</h1>
+    </div>
+    <div style="padding: 20px; background: #f9f9f9;">
+        <p><strong>Имя:</strong> ${escapeHtml(formValues.name)}</p>
+        <p><strong>Телефон:</strong> ${escapeHtml(formValues.phone)}</p>
+        <p><strong>Программа:</strong> ${escapeHtml(serviceName)}</p>
+        ${formValues.message ? `<p><strong>Цель обращения:</strong> ${escapeHtml(formValues.message)}</p>` : ''}
+    </div>
+    <div style="padding: 15px; text-align: center; font-size: 12px; color: #666;">
+        Заявка получена: ${timestamp}<br>
+        Источник: merenkovanutrition.com
+    </div>
+</div>`;
+
+            const emailText = `Новая заявка на консультацию\n\nИмя: ${formValues.name}\nТелефон: ${formValues.phone}\nПрограмма: ${serviceName}\n${formValues.message ? `Цель обращения: ${formValues.message}\n` : ''}\nЗаявка получена: ${timestamp}`;
+
+            try {
+                const response = await fetch(EMAIL_SERVICE_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        to: ['mer.zhan86@mail.ru', 'designabyzova@gmail.com'],
+                        from: {
+                            email: 'noreply@merenkovanutrition.com',
+                            name: 'Merenkovanutrition.com'
+                        },
+                        subject: `Новая заявка: ${serviceName} - ${formValues.name}`,
+                        text: emailText,
+                        html: emailHtml,
+                        replyTo: formValues.phone // Can use phone as reference
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Success - show thank you message
+                    contactForm.innerHTML = `
+                        <div class="form-success" style="text-align: center; padding: 40px 20px;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 48px; height: 48px; color: #2C3E2D; margin-bottom: 16px;">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <h3 style="color: #2C3E2D; margin-bottom: 8px;">Спасибо за заявку!</h3>
+                            <p style="color: #666;">Я свяжусь с вами в ближайшее время.</p>
+                        </div>
+                    `;
+                    // Track conversion
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'form_submit', {
+                            'event_category': 'contact',
+                            'event_label': formValues.service || 'consultation'
+                        });
+                    }
+                } else {
+                    throw new Error(result.error || 'Unknown error');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('Произошла ошибка. Пожалуйста, попробуйте ещё раз или свяжитесь напрямую через мессенджер.');
+                if (submitBtn) {
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            }
         });
+    }
+
+    // Helper: Get display name for service
+    function getServiceDisplayName(serviceKey) {
+        const services = {
+            'free-diagnostic': 'Бесплатная диагностика',
+            'gift-certificate': 'Подарочный сертификат',
+            'basic': 'Консультация одного дня (200 BYN)',
+            'standard': 'Консультация 7 дней (450 BYN)',
+            'premium': 'Сопровождение (900 BYN)',
+        };
+        return services[serviceKey] || serviceKey || 'Не указана';
+    }
+
+    // Helper: Escape HTML
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
     // Smooth scroll for all internal links
@@ -361,6 +463,146 @@ document.addEventListener('DOMContentLoaded', function() {
     // Re-process Instagram embeds when they load
     if (window.instgrm) {
         window.instgrm.Embeds.process();
+    }
+
+    // ==========================================
+    // LEAD MAGNET MODAL FUNCTIONALITY
+    // ==========================================
+    const leadModalOverlay = document.getElementById('leadModalOverlay');
+    const openLeadModalBtn = document.getElementById('openLeadMagnetModal');
+    const closeLeadModalBtn = document.getElementById('closeLeadModal');
+    const leadMagnetForm = document.getElementById('leadMagnetForm');
+    const leadModalContent = document.querySelector('.lead-modal-content');
+    const leadModalSuccess = document.getElementById('leadModalSuccess');
+    const leadSubmitBtn = document.getElementById('leadSubmitBtn');
+
+    // Open modal
+    function openLeadModal() {
+        if (leadModalOverlay) {
+            leadModalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            // Focus on email input
+            setTimeout(() => {
+                const emailInput = document.getElementById('leadEmail');
+                if (emailInput) emailInput.focus();
+            }, 300);
+        }
+    }
+
+    // Close modal
+    function closeLeadModal() {
+        if (leadModalOverlay) {
+            leadModalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Reset modal to form state
+    function resetLeadModal() {
+        if (leadModalContent) leadModalContent.style.display = 'block';
+        if (leadModalSuccess) leadModalSuccess.style.display = 'none';
+        if (leadMagnetForm) leadMagnetForm.reset();
+    }
+
+    // Event listeners
+    if (openLeadModalBtn) {
+        openLeadModalBtn.addEventListener('click', openLeadModal);
+    }
+
+    if (closeLeadModalBtn) {
+        closeLeadModalBtn.addEventListener('click', () => {
+            closeLeadModal();
+            // Reset after animation
+            setTimeout(resetLeadModal, 300);
+        });
+    }
+
+    // Close on overlay click
+    if (leadModalOverlay) {
+        leadModalOverlay.addEventListener('click', (e) => {
+            if (e.target === leadModalOverlay) {
+                closeLeadModal();
+                setTimeout(resetLeadModal, 300);
+            }
+        });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && leadModalOverlay && leadModalOverlay.classList.contains('active')) {
+            closeLeadModal();
+            setTimeout(resetLeadModal, 300);
+        }
+    });
+
+    // Form submission - sends to Web3Forms (free, unlimited)
+    if (leadMagnetForm) {
+        leadMagnetForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const btnText = leadSubmitBtn.querySelector('.btn-text');
+            const btnLoading = leadSubmitBtn.querySelector('.btn-loading');
+            const emailInput = document.getElementById('leadEmail');
+            const nameInput = document.getElementById('leadName');
+
+            // Show loading state
+            if (btnText) btnText.style.display = 'none';
+            if (btnLoading) btnLoading.style.display = 'inline';
+            leadSubmitBtn.disabled = true;
+
+            const email = emailInput ? emailInput.value : '';
+            const name = nameInput ? nameInput.value : 'Не указано';
+
+            try {
+                // Send to Web3Forms - free service
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        access_key: 'cb0ee091-b243-4e0d-b1af-d7cafa893294',
+                        subject: 'Новая заявка на гайд: Как подготовиться к анализам',
+                        from_name: 'Merenkovanutrition.com',
+                        to: 'mer.zhan86@mail.ru',
+                        cc: 'designabyzova@gmail.com',
+                        email: email,
+                        name: name,
+                        message: `Новая заявка на бесплатный гайд "Как подготовиться к сдаче анализов"\n\nEmail: ${email}\nИмя: ${name}\n\nДата: ${new Date().toLocaleString('ru-RU')}`
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success || response.ok) {
+                    // Show success state
+                    if (leadModalContent) leadModalContent.style.display = 'none';
+                    if (leadModalSuccess) leadModalSuccess.style.display = 'block';
+
+                    // Track conversion (if analytics is set up)
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'lead_magnet_download', {
+                            'event_category': 'engagement',
+                            'event_label': 'PDF Guide Download'
+                        });
+                    }
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                // Fallback: still show success and allow download
+                // (Better UX than blocking the user)
+                if (leadModalContent) leadModalContent.style.display = 'none';
+                if (leadModalSuccess) leadModalSuccess.style.display = 'block';
+            } finally {
+                // Reset button state
+                if (btnText) btnText.style.display = 'inline';
+                if (btnLoading) btnLoading.style.display = 'none';
+                leadSubmitBtn.disabled = false;
+            }
+        });
     }
 
     console.log('Classic theme loaded successfully!');

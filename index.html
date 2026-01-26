@@ -444,9 +444,30 @@
                     <p class="hero-description">
                         Медицинский специалист с 16-летним опытом. Помогаю улучшить здоровье через персонализированное питание, основанное на анализе обследований.
                     </p>
-                    <div class="hero-actions">
-                        <a href="#contact" class="btn btn-primary">Записаться на консультацию</a>
-                        <a href="#services" class="btn btn-secondary">Узнать больше</a>
+                    <div class="hero-buttons-wrapper">
+                        <div class="hero-actions">
+                            <a href="#contact" class="btn btn-primary">Записаться на консультацию</a>
+                            <a href="#services" class="btn btn-secondary">Узнать больше</a>
+                        </div>
+                        <!-- Lead Magnet CTA -->
+                        <div class="hero-lead-magnet">
+                            <button type="button" class="lead-magnet-btn" id="openLeadMagnetModal">
+                                <svg class="lead-magnet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="12" y1="18" x2="12" y2="12"/>
+                                    <line x1="9" y1="15" x2="12" y2="12"/>
+                                    <line x1="15" y1="15" x2="12" y2="12"/>
+                                </svg>
+                                <span class="lead-magnet-text">
+                                    <span class="lead-magnet-label">Бесплатный гайд</span>
+                                    <span class="lead-magnet-title">Как подготовиться к сдаче анализов</span>
+                                </span>
+                                <svg class="lead-magnet-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1039,9 +1060,70 @@
                 </div>
             </div>
         </section>
+    </main>
 
-        <!-- Footer -->
-        <footer class="footer">
+    <!-- Lead Magnet Modal -->
+    <div class="lead-modal-overlay" id="leadModalOverlay">
+        <div class="lead-modal" role="dialog" aria-labelledby="leadModalTitle" aria-modal="true">
+            <button type="button" class="lead-modal-close" id="closeLeadModal" aria-label="Закрыть">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="lead-modal-content">
+                <div class="lead-modal-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                </div>
+                <h3 id="leadModalTitle" class="lead-modal-title">Бесплатный гайд</h3>
+                <p class="lead-modal-subtitle">Как подготовиться к сдаче анализов</p>
+                <p class="lead-modal-description">Получите PDF-инструкцию с правилами подготовки к анализам крови, мочи и копрограммы для точных результатов</p>
+                <form class="lead-modal-form" id="leadMagnetForm">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <div class="lead-form-group">
+                        <label for="leadEmail" class="sr-only">Email</label>
+                        <input type="email" id="leadEmail" name="email" required placeholder="Ваш email" autocomplete="email">
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="leadName" class="sr-only">Имя</label>
+                        <input type="text" id="leadName" name="name" placeholder="Ваше имя (необязательно)" autocomplete="given-name">
+                    </div>
+                    <button type="submit" class="lead-submit-btn" id="leadSubmitBtn">
+                        <span class="btn-text">Получить гайд бесплатно</span>
+                        <span class="btn-loading" style="display: none;">Отправка...</span>
+                    </button>
+                </form>
+                <p class="lead-modal-privacy">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+            </div>
+            <!-- Success state -->
+            <div class="lead-modal-success" id="leadModalSuccess" style="display: none;">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                </div>
+                <h3 class="success-title">Спасибо!</h3>
+                <p class="success-text">Ваш гайд готов к скачиванию</p>
+                <a href="assets/FreeHowtoPrepareforTesting.pdf" download="Как подготовиться к сдаче анализов.pdf" class="download-btn" id="downloadPdfBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Скачать PDF
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
             <div class="footer-content">
                 <div class="footer-brand">
                     <img src="assets/images/Logo-ZhannaMerenkova.png" alt="Жанна Меренкова — клинический нутрициолог, здоровое питание и консультации" class="footer-logo">
@@ -1088,7 +1170,6 @@
                 <p class="footer-copyright">&copy; 2025 Жанна Меренкова. Все права защищены.</p>
             </div>
         </footer>
-    </main>
 
     <script src="script.js" defer></script>
     <!-- Instagram Embed Script - loads async for performance -->

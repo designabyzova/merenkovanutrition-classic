@@ -399,6 +399,12 @@ body {
     max-width: 400px;
 }
 
+.hero-buttons-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
 .hero-actions {
     display: flex;
     gap: 16px;
@@ -1750,6 +1756,10 @@ body {
         margin-right: auto;
     }
 
+    .hero-buttons-wrapper {
+        align-items: center;
+    }
+
     .hero-actions {
         justify-content: center;
     }
@@ -2332,6 +2342,10 @@ textarea:focus-visible {
     }
 
     /* Better spacing for mobile */
+    .hero-buttons-wrapper {
+        width: 100%;
+    }
+
     .hero-actions {
         flex-direction: column;
         gap: 12px;
@@ -2402,5 +2416,466 @@ textarea:focus-visible {
     .contact-social-link {
         width: 56px;
         height: 56px;
+    }
+}
+
+/* ==========================================
+   LEAD MAGNET STYLES
+   ========================================== */
+
+/* Hero Lead Magnet Button */
+.hero-lead-magnet {
+    display: block !important;
+    visibility: visible !important;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--cream-dark);
+}
+
+.lead-magnet-btn {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%);
+    border: 1px solid var(--sage-dark);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    /* Premium shadow */
+    box-shadow: 0 4px 15px rgba(197, 205, 181, 0.3),
+                0 2px 6px rgba(168, 178, 153, 0.2);
+}
+
+/* Shine effect */
+.lead-magnet-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.lead-magnet-btn:hover::before {
+    left: 100%;
+}
+
+.lead-magnet-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(197, 205, 181, 0.5),
+                0 6px 15px rgba(168, 178, 153, 0.3);
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+}
+
+.lead-magnet-icon {
+    width: 40px;
+    height: 40px;
+    stroke: var(--forest);
+    flex-shrink: 0;
+}
+
+.lead-magnet-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.lead-magnet-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--forest);
+    opacity: 0.85;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Sparkle decoration */
+.lead-magnet-label::before {
+    content: '✦';
+    font-size: 0.6rem;
+    opacity: 0.9;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+}
+
+.lead-magnet-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--forest);
+    line-height: 1.3;
+}
+
+/* Arrow indicator */
+.lead-magnet-arrow {
+    width: 22px;
+    height: 22px;
+    stroke: var(--forest);
+    flex-shrink: 0;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.lead-magnet-btn:hover .lead-magnet-arrow {
+    transform: translateX(4px);
+    opacity: 0.9;
+}
+
+/* Lead Magnet Modal */
+.lead-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.lead-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lead-modal {
+    background: var(--white);
+    border-radius: 20px;
+    max-width: 440px;
+    width: 100%;
+    position: relative;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.lead-modal-overlay.active .lead-modal {
+    transform: scale(1) translateY(0);
+}
+
+.lead-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: var(--cream-light);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.lead-modal-close:hover {
+    background: var(--cream);
+    transform: rotate(90deg);
+}
+
+.lead-modal-close svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--charcoal);
+}
+
+.lead-modal-content {
+    padding: 48px 40px 40px;
+    text-align: center;
+}
+
+.lead-modal-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lead-modal-icon svg {
+    width: 36px;
+    height: 36px;
+    stroke: var(--forest);
+}
+
+.lead-modal-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 8px;
+}
+
+.lead-modal-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.lead-modal-description {
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.lead-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lead-form-group input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid var(--cream-dark);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--charcoal);
+    background: var(--cream-light);
+    transition: var(--transition);
+}
+
+.lead-form-group input:focus {
+    outline: none;
+    border-color: var(--sage);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(197, 205, 181, 0.3);
+}
+
+.lead-form-group input::placeholder {
+    color: var(--charcoal);
+    opacity: 0.5;
+}
+
+.lead-submit-btn {
+    width: 100%;
+    padding: 18px 24px;
+    background: var(--forest);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 8px;
+}
+
+.lead-submit-btn:hover {
+    background: var(--forest-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(44, 62, 45, 0.3);
+}
+
+.lead-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.lead-modal-privacy {
+    font-size: 0.75rem;
+    color: var(--charcoal);
+    opacity: 0.6;
+    margin-top: 16px;
+    line-height: 1.5;
+}
+
+/* Success State */
+.lead-modal-success {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.success-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: var(--white);
+}
+
+.success-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 8px;
+}
+
+.success-text {
+    font-size: 1rem;
+    color: var(--charcoal);
+    opacity: 0.8;
+    margin-bottom: 28px;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 36px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--forest);
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(184, 161, 121, 0.4);
+}
+
+.download-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Responsive - Lead Magnet */
+@media (max-width: 992px) {
+    .hero-buttons-wrapper {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .hero-actions {
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        flex: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .lead-magnet-btn {
+        padding: 14px 20px;
+        gap: 12px;
+    }
+
+    .lead-magnet-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .lead-magnet-title {
+        font-size: 0.95rem;
+    }
+
+    .lead-magnet-arrow {
+        width: 18px;
+        height: 18px;
+    }
+
+    .lead-magnet-label {
+        font-size: 0.65rem;
+    }
+
+    .lead-modal-content {
+        padding: 40px 24px 32px;
+    }
+
+    .lead-modal-title {
+        font-size: 1.4rem;
+    }
+
+    .lead-modal-description {
+        font-size: 0.85rem;
+    }
+
+    .lead-form-group input {
+        padding: 14px 16px;
+        font-size: 16px; /* Prevents iOS zoom */
+    }
+
+    .lead-submit-btn {
+        padding: 16px 20px;
+    }
+
+    .lead-modal-success {
+        padding: 48px 24px;
+    }
+
+    .download-btn {
+        padding: 16px 28px;
+        font-size: 1rem;
     }
 }
