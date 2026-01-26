@@ -267,6 +267,25 @@ ${formValues.message ? 'Цель обращения: ' + formValues.message : ''
         return services[serviceKey] || serviceKey || 'Не указана';
     }
 
+    // Service buttons - scroll to contact and pre-select service
+    const serviceButtons = document.querySelectorAll('[data-service]');
+    const serviceSelect = document.getElementById('service');
+
+    serviceButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const serviceValue = this.getAttribute('data-service');
+
+            // Pre-select the service in dropdown
+            if (serviceSelect && serviceValue) {
+                serviceSelect.value = serviceValue;
+            }
+
+            // Scroll to contact section
+            scrollToSection('contact');
+        });
+    });
+
     // Smooth scroll for all internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
