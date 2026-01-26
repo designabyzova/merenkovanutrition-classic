@@ -285,5 +285,83 @@ document.addEventListener('DOMContentLoaded', function() {
         img.classList.add('loaded');
     });
 
+    // Text Reviews Slider
+    const slider = document.querySelector('.text-reviews-slider');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    const dotsContainer = document.querySelector('.slider-dots');
+
+    if (slider && prevBtn && nextBtn && dotsContainer) {
+        const cards = slider.querySelectorAll('.text-review-card');
+        let currentIndex = 0;
+
+        // Create dots
+        cards.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('slider-dot');
+            dot.setAttribute('aria-label', `Перейти к отзыву ${index + 1}`);
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            const card = cards[index];
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            }
+            updateDots();
+        }
+
+        function getVisibleCards() {
+            const sliderRect = slider.getBoundingClientRect();
+            let count = 1;
+            if (window.innerWidth >= 992) count = 3;
+            else if (window.innerWidth >= 768) count = 2;
+            return count;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = Math.max(0, currentIndex - 1);
+            goToSlide(currentIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const maxIndex = cards.length - 1;
+            currentIndex = Math.min(maxIndex, currentIndex + 1);
+            goToSlide(currentIndex);
+        });
+
+        // Update active dot on scroll
+        let scrollTimeout;
+        slider.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const sliderRect = slider.getBoundingClientRect();
+                cards.forEach((card, index) => {
+                    const cardRect = card.getBoundingClientRect();
+                    if (cardRect.left >= sliderRect.left - 50 && cardRect.left <= sliderRect.left + 50) {
+                        currentIndex = index;
+                        updateDots();
+                    }
+                });
+            }, 100);
+        });
+    }
+
+    // Re-process Instagram embeds when they load
+    if (window.instgrm) {
+        window.instgrm.Embeds.process();
+    }
+
     console.log('Classic theme loaded successfully!');
 });

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подарочный сертификат 900 BYN — Жанна Меренкова</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sage: #C5CDB5;
+            --sage-light: #D4DBCA;
+            --cream: #E8E4DC;
+            --cream-light: #F7F5F2;
+            --forest: #2C3E2D;
+            --forest-light: #3D5240;
+            --charcoal: #333333;
+            --white: #FFFFFF;
+            --gold: #B8A179;
+            --gold-light: #D4C4A8;
+            --gold-dark: #9A8561;
+
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-script: 'Great Vibes', cursive;
+        }
+
+        html, body {
+            width: 297mm;
+            height: 210mm;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+        }
+
+        .certificate {
+            width: 297mm;
+            height: 210mm;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Premium accent */
+        .premium-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--gold-light));
+        }
+
+        /* Borders */
+        .border-outer {
+            position: absolute;
+            top: 8mm;
+            left: 8mm;
+            right: 8mm;
+            bottom: 8mm;
+            border: 2px solid var(--gold);
+        }
+
+        .border-inner {
+            position: absolute;
+            top: 12mm;
+            left: 12mm;
+            right: 12mm;
+            bottom: 12mm;
+            border: 1px solid var(--gold-light);
+        }
+
+        /* Corners */
+        .corner {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+        }
+
+        .corner svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--gold);
+        }
+
+        .corner-tl { top: 14mm; left: 14mm; }
+        .corner-tr { top: 14mm; right: 14mm; transform: rotate(90deg); }
+        .corner-bl { bottom: 14mm; left: 14mm; transform: rotate(-90deg); }
+        .corner-br { bottom: 14mm; right: 14mm; transform: rotate(180deg); }
+
+        /* Background */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 15% 20%, rgba(184, 161, 121, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 80%, rgba(184, 161, 121, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Content */
+        .content {
+            position: absolute;
+            top: 20mm;
+            left: 25mm;
+            right: 25mm;
+            bottom: 22mm;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 6mm;
+        }
+
+        .brand-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 4mm;
+        }
+
+        .brand-divider {
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .brand-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        .brand-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--gold);
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .brand-name {
+            font-family: var(--font-display);
+            font-size: 10pt;
+            font-weight: 400;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2mm;
+        }
+
+        .title {
+            font-family: var(--font-script);
+            font-size: 42pt;
+            font-weight: 400;
+            color: var(--forest);
+            line-height: 1;
+            margin-bottom: 2mm;
+        }
+
+        .subtitle {
+            font-family: var(--font-display);
+            font-size: 9pt;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            opacity: 0.6;
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 5mm 0;
+        }
+
+        .divider-line {
+            width: 70px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-light), var(--gold), var(--gold-light), transparent);
+        }
+
+        .divider-diamond {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            transform: rotate(45deg);
+        }
+
+        /* Recipient */
+        .recipient {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .recipient-intro {
+            font-family: var(--font-display);
+            font-size: 10pt;
+            font-style: italic;
+            color: var(--charcoal);
+            opacity: 0.7;
+            margin-bottom: 3mm;
+        }
+
+        .recipient-name {
+            font-family: var(--font-script);
+            font-size: 28pt;
+            color: var(--forest);
+            border-bottom: 2px solid var(--gold-light);
+            padding: 0 25px 4px;
+            margin-bottom: 5mm;
+            min-width: 180px;
+        }
+
+        .service-text {
+            font-family: var(--font-display);
+            font-size: 10pt;
+            color: var(--charcoal);
+            line-height: 1.6;
+            max-width: 420px;
+            margin-bottom: 5mm;
+        }
+
+        .service-text strong {
+            color: var(--forest);
+            font-weight: 600;
+        }
+
+        /* Price - Premium forest green style */
+        .price-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 100%);
+            padding: 10px 30px;
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(44, 62, 45, 0.3);
+            margin-bottom: 4mm;
+            border: 2px solid var(--gold);
+        }
+
+        .price-main {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            color: var(--white);
+        }
+
+        .price-amount {
+            font-family: var(--font-display);
+            font-size: 28pt;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .price-currency {
+            font-family: var(--font-body);
+            font-size: 11pt;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .price-alt {
+            display: flex;
+            align-items: baseline;
+            gap: 3px;
+            color: var(--gold-light);
+        }
+
+        .price-alt .price-amount {
+            font-size: 18pt;
+            font-weight: 500;
+        }
+
+        .price-alt .price-currency {
+            font-size: 9pt;
+        }
+
+        .program-name {
+            font-family: var(--font-display);
+            font-size: 11pt;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 3mm;
+        }
+
+        /* Premium badge */
+        .premium-badge {
+            position: absolute;
+            top: 20mm;
+            left: 20mm;
+            background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 100%);
+            color: var(--gold-light);
+            padding: 4px 14px;
+            font-size: 6pt;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 15px;
+            border: 1px solid var(--gold);
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 100%;
+            padding-top: 4mm;
+            border-top: 1px solid var(--cream);
+        }
+
+        .footer-col {
+            text-align: center;
+            min-width: 90px;
+        }
+
+        .footer-col.left { text-align: left; }
+        .footer-col.right { text-align: right; }
+
+        .footer-label {
+            font-size: 7pt;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            opacity: 0.5;
+            margin-bottom: 2mm;
+        }
+
+        .footer-value {
+            font-family: var(--font-display);
+            font-size: 9pt;
+            color: var(--forest);
+            border-bottom: 1px solid var(--gold-light);
+            padding-bottom: 2px;
+            min-width: 70px;
+            display: inline-block;
+        }
+
+        .signature-name {
+            font-family: var(--font-script);
+            font-size: 16pt;
+            color: var(--forest);
+        }
+
+        .signature-title {
+            font-size: 7pt;
+            color: var(--charcoal);
+            opacity: 0.6;
+            margin-top: 1mm;
+        }
+
+        /* Validity badge */
+        .validity-badge {
+            position: absolute;
+            top: 22mm;
+            right: 22mm;
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-12deg);
+            background: var(--white);
+        }
+
+        .validity-text {
+            font-size: 5pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gold);
+            line-height: 1.2;
+        }
+
+        .validity-number {
+            font-family: var(--font-display);
+            font-size: 14pt;
+            font-weight: 600;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        /* Certificate number */
+        .cert-number {
+            position: absolute;
+            bottom: 18mm;
+            right: 20mm;
+            font-size: 7pt;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        /* Contact bar */
+        .contact-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--forest);
+            padding: 2.5mm 18mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--white);
+            font-size: 7pt;
+            opacity: 0.9;
+        }
+
+        .contact-item svg {
+            width: 10px;
+            height: 10px;
+            stroke: var(--gold-light);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        @media print {
+            html, body {
+                width: 297mm;
+                height: 210mm;
+                margin: 0;
+                padding: 0;
+            }
+
+            .certificate {
+                box-shadow: none;
+            }
+
+            .contact-bar,
+            .price-section,
+            .premium-badge,
+            .premium-accent {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media screen {
+            body {
+                background: #e0e0e0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                padding: 20px;
+            }
+
+            .certificate {
+                box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <div class="premium-accent"></div>
+        <div class="bg-pattern"></div>
+        <div class="border-outer"></div>
+        <div class="border-inner"></div>
+
+        <div class="corner corner-tl">
+            <svg viewBox="0 0 45 45">
+                <path d="M5,5 L5,20 Q5,5 20,5 L5,5" stroke-width="2" stroke="currentColor" fill="none"/>
+                <circle cx="8" cy="8" r="3" fill="currentColor"/>
+                <path d="M12,12 Q12,22 22,22 Q22,12 12,12" fill="currentColor" opacity="0.2"/>
+            </svg>
+        </div>
+        <div class="corner corner-tr">
+            <svg viewBox="0 0 45 45">
+                <path d="M5,5 L5,20 Q5,5 20,5 L5,5" stroke-width="2" stroke="currentColor" fill="none"/>
+                <circle cx="8" cy="8" r="3" fill="currentColor"/>
+                <path d="M12,12 Q12,22 22,22 Q22,12 12,12" fill="currentColor" opacity="0.2"/>
+            </svg>
+        </div>
+        <div class="corner corner-bl">
+            <svg viewBox="0 0 45 45">
+                <path d="M5,5 L5,20 Q5,5 20,5 L5,5" stroke-width="2" stroke="currentColor" fill="none"/>
+                <circle cx="8" cy="8" r="3" fill="currentColor"/>
+                <path d="M12,12 Q12,22 22,22 Q22,12 12,12" fill="currentColor" opacity="0.2"/>
+            </svg>
+        </div>
+        <div class="corner corner-br">
+            <svg viewBox="0 0 45 45">
+                <path d="M5,5 L5,20 Q5,5 20,5 L5,5" stroke-width="2" stroke="currentColor" fill="none"/>
+                <circle cx="8" cy="8" r="3" fill="currentColor"/>
+                <path d="M12,12 Q12,22 22,22 Q22,12 12,12" fill="currentColor" opacity="0.2"/>
+            </svg>
+        </div>
+
+        <div class="premium-badge">Премиум</div>
+
+        <div class="validity-badge">
+            <span class="validity-text">Срок</span>
+            <span class="validity-number">6</span>
+            <span class="validity-text">мес.</span>
+        </div>
+
+        <div class="cert-number">№ GC-2026-001</div>
+
+        <div class="content">
+            <div class="header">
+                <div class="brand-line">
+                    <div class="brand-divider"></div>
+                    <div class="brand-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v12M6 12h12"/>
+                        </svg>
+                    </div>
+                    <div class="brand-divider"></div>
+                </div>
+                <div class="brand-name">Zhanna Merenkova</div>
+                <h1 class="title">Подарочный сертификат</h1>
+                <p class="subtitle">На консультацию клинического нутрициолога</p>
+            </div>
+
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-diamond"></div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="recipient">
+                <p class="recipient-intro">Настоящий сертификат вручается</p>
+                <div class="recipient-name">_______________________</div>
+
+                <p class="service-text">
+                    и дает право на получение <strong>персональной консультации</strong>
+                    по питанию и здоровому образу жизни от клинического нутрициолога
+                    <strong>Жанны Меренковой</strong>
+                </p>
+
+                <div class="program-name">Премиум программа — Сопровождение</div>
+
+                <div class="price-section">
+                    <div class="price-main">
+                        <span class="price-amount">900</span>
+                        <span class="price-currency">BYN</span>
+                    </div>
+                    <div class="price-alt">
+                        <span class="price-amount">24 000</span>
+                        <span class="price-currency">RUB</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-col left">
+                    <div class="footer-label">Дата выдачи</div>
+                    <div class="footer-value">__.__.2026</div>
+                </div>
+                <div class="footer-col">
+                    <div class="signature-name">Жанна Меренкова</div>
+                    <div class="signature-title">Клинический нутрициолог</div>
+                </div>
+                <div class="footer-col right">
+                    <div class="footer-label">Действителен до</div>
+                    <div class="footer-value">__.__.2026</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-bar">
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24">
+                    <rect x="2" y="2" width="20" height="20" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.5" cy="6.5" r="1.5"/>
+                </svg>
+                @zhenni_new
+            </div>
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+                +375 29 518 51 54
+            </div>
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                </svg>
+                merenkovanutrition.com
+            </div>
+        </div>
+    </div>
+</body>
+</html>
