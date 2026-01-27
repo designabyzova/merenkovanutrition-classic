@@ -1727,10 +1727,11 @@ body {
     }
 
     .back-to-top {
-        bottom: 90px;
+        bottom: calc(100px + env(safe-area-inset-bottom, 0px));
         right: 20px;
         width: 44px;
         height: 44px;
+        z-index: 9998;
     }
 
     .back-to-top svg {
