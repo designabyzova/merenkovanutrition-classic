@@ -134,41 +134,17 @@
             margin-bottom: 6mm;
         }
 
-        .brand-line {
+        .brand-logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
             margin-bottom: 4mm;
         }
 
-        .brand-divider {
-            width: 50px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-
-        .brand-icon {
-            width: 30px;
-            height: 30px;
-        }
-
-        .brand-icon svg {
-            width: 100%;
-            height: 100%;
-            stroke: var(--gold);
-            stroke-width: 1.5;
-            fill: none;
-        }
-
-        .brand-name {
-            font-family: var(--font-display);
-            font-size: 10pt;
-            font-weight: 400;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 2mm;
+        .brand-logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
         }
 
         .title {
@@ -519,17 +495,9 @@
 
         <div class="content">
             <div class="header">
-                <div class="brand-line">
-                    <div class="brand-divider"></div>
-                    <div class="brand-icon">
-                        <svg viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v12M6 12h12"/>
-                        </svg>
-                    </div>
-                    <div class="brand-divider"></div>
+                <div class="brand-logo">
+                    <img src="assets/images/Logo-ZhannaMerenkova.png" alt="Zhanna Merenkova">
                 </div>
-                <div class="brand-name">Zhanna Merenkova</div>
                 <h1 class="title">Подарочный сертификат</h1>
                 <p class="subtitle">На консультацию клинического нутрициолога</p>
             </div>
